@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог ВУЗов - Подбор ВУЗов по баллам</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            padding: 0 1rem;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 1rem 0;
+            position: relative;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 0 1rem;
+        }
+
+        .university-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .university-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .university-card h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .university-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .university-card .faculties {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .university-card .faculties h4 {
+            color: #34495e;
+            margin-bottom: 0.5rem;
+        }
+
+        .university-card .faculties ul {
+            list-style: none;
+            padding-left: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .university-card .faculties li {
+            margin-bottom: 0.3rem;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            padding: 0 1rem;
+        }
+
+        .footer-section h4 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #3498db;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #34495e;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .catalog {
+                gap: 1.5rem;
+            }
+
+            .university-card {
+                padding: 1.2rem;
+            }
+
+            .university-card .faculties ul {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .catalog {
+                gap: 1rem;
+            }
+
+            .university-card {
+                padding: 1rem;
+            }
+
+            .university-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .university-card p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Каталог ВУЗов Беларуси</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="search.html">Поиск ВУЗов</a></li>
+                <li><a href="catalog.html">Каталог ВУЗов</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="catalog">
+            <div class="university-card">
+                <h3>Белорусский государственный университет (БГУ)</h3>
+                <p><strong>Адрес:</strong> г. Минск, ул. Ленинградская, 20</p>
+                <p><strong>Телефон:</strong> +375 (17) 209-50-01</p>
+                <div class="faculties">
+                    <h4>Факультеты:</h4>
+                    <ul>
+                        <li>Механико-математический</li>
+                        <li>Физический</li>
+                        <li>Химический</li>
+                        <li>Биологический</li>
+                        <li>Факультет прикладной математики и информатики</li>
+                        <li>Экономический</li>
+                        <li>Филологический</li>
+                        <li>Исторический</li>
+                        <li>Международных отношений</li>
+                        <li>Журналистики</li>
+                        <li>Философии и социальных наук</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="university-card">
+                <h3>Белорусский национальный технический университет (БНТУ)</h3>
+                <p><strong>Адрес:</strong> г. Минск, пр. Независимости, 65</p>
+                <p><strong>Телефон:</strong> +375 (17) 293-93-31</p>
+                <div class="faculties">
+                    <h4>Факультеты:</h4>
+                    <ul>
+                        <li>Машиностроительный</li>
+                        <li>Энергетический</li>
+                        <li>Информационных технологий и робототехники</li>
+                        <li>Архитектурный</li>
+                        <li>Строительный</li>
+                        <li>Транспортных коммуникаций</li>
+                        <li>Приборостроительный</li>
+                        <li>Маркетинга и менеджмента</li>
+                        <li>Горно-инженерный</li>
+                        <li>Механико-технологический</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="university-card">
+                <h3>Белорусский государственный медицинский университет (БГМУ)</h3>
+                <p><strong>Адрес:</strong> г. Минск, пр. Дзержинского, 83</p>
+                <p><strong>Телефон:</strong> +375 (17) 277-12-44</p>
+                <div class="faculties">
+                    <h4>Факультеты:</h4>
+                    <ul>
+                        <li>Лечебный</li>
+                        <li>Педиатрический</li>
+                        <li>Медико-профилактический</li>
+                        <li>Стоматологический</li>
+                        <li>Фармацевтический</li>
+                        <li>Медико-биологический</li>
+                        <li>Военно-медицинский</li>
+                        <li>Медико-психологический</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="university-card">
+                <h3>Белорусский государственный университет информатики и радиоэлектроники (БГУИР)</h3>
+                <p><strong>Адрес:</strong> г. Минск, ул. Петруся Бровки, 6</p>
+                <p><strong>Телефон:</strong> +375 (17) 293-88-88</p>
+                <div class="faculties">
+                    <h4>Факультеты:</h4>
+                    <ul>
+                        <li>Факультет информационных технологий</li>
+                        <li>Факультет компьютерных систем и сетей</li>
+                        <li>Факультет радиотехники и электроники</li>
+                        <li>Факультет телекоммуникаций</li>
+                        <li>Факультет инженерно-экономический</li>
+                        <li>Факультет военный</li>
+                        <li>Факультет дистанционного обучения</li>
+                        <li>Факультет заочного обучения</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="university-card">
+                <h3>Белорусский государственный экономический университет (БГЭУ)</h3>
+                <p><strong>Адрес:</strong> г. Минск, пр. Партизанский, 26</p>
+                <p><strong>Телефон:</strong> +375 (17) 209-88-88</p>
+                <div class="faculties">
+                    <h4>Факультеты:</h4>
+                    <ul>
+                        <li>Факультет экономики и управления</li>
+                        <li>Факультет менеджмента</li>
+                        <li>Факультет финансов и банковского дела</li>
+                        <li>Факультет международных экономических отношений</li>
+                        <li>Факультет права</li>
+                        <li>Факультет маркетинга</li>
+                        <li>Факультет высшей школы управления и бизнеса</li>
+                        <li>Факультет международных бизнес-коммуникаций</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="university-card">
+                <h3>Белорусский государственный технологический университет (БГТУ)</h3>
+                <p><strong>Адрес:</strong> г. Минск, ул. Свердлова, 13а</p>
+                <p><strong>Телефон:</strong> +375 (17) 327-63-75</p>
+                <div class="faculties">
+                    <h4>Факультеты:</h4>
+                    <ul>
+                        <li>Факультет химической технологии</li>
+                        <li>Факультет технологии органических веществ</li>
+                        <li>Факультет технологии неорганических веществ</li>
+                        <li>Факультет лесной инженерии</li>
+                        <li>Факультет информационных технологий</li>
+                        <li>Факультет экономики и бизнеса</li>
+                        <li>Факультет заочного обучения</li>
+                        <li>Факультет повышения квалификации</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="university-card">
+                <h3>Белорусский государственный педагогический университет (БГПУ)</h3>
+                <p><strong>Адрес:</strong> г. Минск, ул. Советская, 18</p>
+                <p><strong>Телефон:</strong> +375 (17) 200-94-17</p>
+                <div class="faculties">
+                    <h4>Факультеты:</h4>
+                    <ul>
+                        <li>Факультет начального образования</li>
+                        <li>Факультет дошкольного образования</li>
+                        <li>Факультет естествознания</li>
+                        <li>Факультет физико-математический</li>
+                        <li>Факультет эстетического образования</li>
+                        <li>Факультет социально-педагогических технологий</li>
+                        <li>Факультет физического воспитания</li>
+                        <li>Факультет исторический</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="university-card">
+                <h3>Белорусский государственный университет культуры и искусств (БГУКИ)</h3>
+                <p><strong>Адрес:</strong> г. Минск, ул. Рабкоровская, 17</p>
+                <p><strong>Телефон:</strong> +375 (17) 222-83-63</p>
+                <div class="faculties">
+                    <h4>Факультеты:</h4>
+                    <ul>
+                        <li>Факультет культурологии и социокультурной деятельности</li>
+                        <li>Факультет музыкального искусства</li>
+                        <li>Факультет традиционной белорусской культуры</li>
+                        <li>Факультет заочного обучения</li>
+                        <li>Факультет повышения квалификации</li>
+                        <li>Факультет дополнительного образования</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="university-card">
+                <h3>Белорусский государственный аграрный технический университет (БГАТУ)</h3>
+                <p><strong>Адрес:</strong> г. Минск, пр. Независимости, 99</p>
+                <p><strong>Телефон:</strong> +375 (17) 267-47-66</p>
+                <div class="faculties">
+                    <h4>Факультеты:</h4>
+                    <ul>
+                        <li>Факультет механизации сельского хозяйства</li>
+                        <li>Факультет электрификации сельского хозяйства</li>
+                        <li>Факультет технического сервиса</li>
+                        <li>Факультет предпринимательства и управления</li>
+                        <li>Факультет заочного обучения</li>
+                        <li>Факультет повышения квалификации</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>О сервисе</h4>
+                    <p>Сервис подбора ВУЗов по баллам помогает абитуриентам найти подходящие учебные заведения на основе их результатов ЦТ.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Email: pracagep@gmail.com</p>
+                    <p>Телефон: +375 (44) 721-10-01</p>
+                    <p>Адрес: г. п. Лоев, ул. Интернациональная, 17</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Полезные ссылки</h4>
+                    <p><a href="index.html">Главная страница</a></p>
+                    <p><a href="search.html">Поиск ВУЗов</a></p>
+                    <p><a href="catalog.html">Каталог ВУЗов</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Подбор ВУЗов по баллам. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 

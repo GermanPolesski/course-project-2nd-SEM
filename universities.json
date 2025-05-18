@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Белорусский государственный университет (БГУ)",
+    "address": "г. Минск, ул. Ленинградская, 20",
+    "phone": "+375 (17) 209-50-01",
+    "faculties": [
+      {"name": "Механико-математический", "fields": ["mathematics"], "min_score": 285},
+      {"name": "Физический", "fields": ["physics"], "min_score": 270},
+      {"name": "Химический", "fields": ["chemistry"], "min_score": 275},
+      {"name": "Биологический", "fields": ["biology"], "min_score": 280},
+      {"name": "Факультет прикладной математики и информатики", "fields": ["mathematics", "informatics", "biology"], "min_score": 285},
+      {"name": "Экономический", "fields": ["economics"], "min_score": 290},
+      {"name": "Филологический", "fields": ["philology"], "min_score": 265},
+      {"name": "Исторический", "fields": ["history"], "min_score": 260},
+      {"name": "Международных отношений", "fields": ["international"], "min_score": 295},
+      {"name": "Факультет журналистики", "fields": ["journalism"], "min_score": 285}
+    ]
+  },
+  {
+    "name": "Белорусский национальный технический университет (БНТУ)",
+    "address": "г. Минск, пр. Независимости, 65",
+    "phone": "+375 (17) 293-93-31",
+    "faculties": [
+      {"name": "Факультет информационных технологий", "fields": ["informatics", "mathematics"], "min_score": 270},
+      {"name": "Факультет энергетики", "fields": ["physics", "engineering"], "min_score": 265},
+      {"name": "Факультет маркетинга и менеджмента", "fields": ["economics"], "min_score": 265},
+      {"name": "Машиностроительный", "fields": ["engineering"], "min_score": 260},
+      {"name": "Архитектурный", "fields": ["architecture"], "min_score": 275},
+      {"name": "Строительный", "fields": ["engineering"], "min_score": 255},
+      {"name": "Факультет транспортных коммуникаций", "fields": ["engineering"], "min_score": 250},
+      {"name": "Факультет технологий управления и гуманитаризации", "fields": ["economics", "management"], "min_score": 260}
+    ]
+  },
+  {
+    "name": "Белорусский государственный медицинский университет (БГМУ)",
+    "address": "г. Минск, пр. Дзержинского, 83",
+    "phone": "+375 (17) 277-12-44",
+    "faculties": [
+      {"name": "Лечебный", "fields": ["medicine"], "min_score": 295},
+      {"name": "Педиатрический", "fields": ["medicine"], "min_score": 290},
+      {"name": "Медико-биологический", "fields": ["biology"], "min_score": 290},
+      {"name": "Фармацевтический", "fields": ["chemistry"], "min_score": 280},
+      {"name": "Стоматологический", "fields": ["medicine"], "min_score": 285},
+      {"name": "Факультет военной медицины", "fields": ["medicine"], "min_score": 290}
+    ]
+  },
+  {
+    "name": "Белорусский государственный экономический университет (БГЭУ)",
+    "address": "г. Минск, пр. Партизанский, 26",
+    "phone": "+375 (17) 209-88-88",
+    "faculties": [
+      {"name": "Финансово-экономический", "fields": ["economics"], "min_score": 285},
+      {"name": "Учетно-экономический", "fields": ["economics"], "min_score": 280},
+      {"name": "Менеджмента", "fields": ["management"], "min_score": 275},
+      {"name": "Маркетинга", "fields": ["marketing"], "min_score": 270},
+      {"name": "Коммерции и туристической индустрии", "fields": ["economics", "tourism"], "min_score": 265},
+      {"name": "Международных экономических отношений", "fields": ["economics", "international"], "min_score": 290}
+    ]
+  },
+  {
+    "name": "Белорусский государственный университет информатики и радиоэлектроники (БГУИР)",
+    "address": "г. Минск, ул. Петруся Бровки, 6",
+    "phone": "+375 (17) 293-88-88",
+    "faculties": [
+      {"name": "Факультет компьютерных систем и сетей", "fields": ["informatics"], "min_score": 275},
+      {"name": "Факультет информационных технологий и управления", "fields": ["informatics", "management"], "min_score": 270},
+      {"name": "Факультет радиотехники и электроники", "fields": ["engineering", "physics"], "min_score": 265},
+      {"name": "Факультет телекоммуникаций", "fields": ["engineering"], "min_score": 260},
+      {"name": "Факультет компьютерного проектирования", "fields": ["informatics", "engineering"], "min_score": 270},
+      {"name": "Факультет инженерно-экономический", "fields": ["economics", "engineering"], "min_score": 265}
+    ]
+  },
+  {
+    "name": "Белорусский государственный технологический университет (БГТУ)",
+    "address": "г. Минск, ул. Свердлова, 13а",
+    "phone": "+375 (17) 327-63-75",
+    "faculties": [
+      {"name": "Химико-технологический", "fields": ["chemistry", "engineering"], "min_score": 265},
+      {"name": "Технологии органических веществ", "fields": ["chemistry"], "min_score": 260},
+      {"name": "Инженерно-экономический", "fields": ["economics", "engineering"], "min_score": 255},
+      {"name": "Факультет лесной инженерии", "fields": ["engineering"], "min_score": 250},
+      {"name": "Факультет химической технологии и техники", "fields": ["chemistry", "engineering"], "min_score": 260},
+      {"name": "Факультет информационных технологий", "fields": ["informatics"], "min_score": 270}
+    ]
+  }
+] 
