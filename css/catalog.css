@@ -1,0 +1,84 @@
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
+
+.university-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.university-card:hover {
+    transform: translateY(-5px);
+}
+
+.university-card h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.university-card p {
+    margin-bottom: 0.5rem;
+}
+
+.university-card .faculties {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.university-card .faculties h4 {
+    color: #34495e;
+    margin-bottom: 0.5rem;
+}
+
+.university-card .faculties ul {
+    list-style: none;
+    padding-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+}
+
+.university-card .faculties li {
+    margin-bottom: 0.3rem;
+}
+
+@media (max-width: 768px) {
+    .catalog {
+        gap: 1.5rem;
+    }
+
+    .university-card {
+        padding: 1.2rem;
+    }
+
+    .university-card .faculties ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog {
+        gap: 1rem;
+    }
+
+    .university-card {
+        padding: 1rem;
+    }
+
+    .university-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .university-card p {
+        font-size: 0.9rem;
+    }
+} 
