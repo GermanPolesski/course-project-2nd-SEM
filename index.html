@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подбор ВУЗов по баллам</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="book"></div>
+            </div>
+            <h1>Подбор ВУЗов по баллам</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="search.html">Поиск ВУЗов</a></li>
+                <li><a href="catalog.html">Каталог ВУЗов</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Найдите свой идеальный ВУЗ</h1>
+            <p>Мы поможем вам выбрать подходящий университет на основе ваших баллов и интересов. Наш сервис предоставляет актуальную информацию о высших учебных заведениях Беларуси.</p>
+            <a href="search.html" class="cta-button">Начать поиск</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-content">
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Удобный поиск</h3>
+                    <p>Введите ваши баллы и выберите интересующую сферу, чтобы найти подходящие факультеты. Наша система автоматически подберет для вас оптимальные варианты.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Актуальная информация</h3>
+                    <p>База данных регулярно обновляется, предоставляя вам самую свежую информацию о ВУЗах, проходных баллах и специальностях.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Подробный каталог</h3>
+                    <p>Изучите полный список высших учебных заведений Беларуси с подробной информацией о каждом ВУЗе, его факультетах и специальностях.</p>
+                </div>
+            </div>
+
+            <div class="steps">
+                <h2>Как это работает</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Введите баллы</h3>
+                        <p>Укажите ваши баллы по ЦТ или ЕГЭ</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Выберите сферу</h3>
+                        <p>Определите интересующее вас направление</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Получите результат</h3>
+                        <p>Система подберет подходящие ВУЗы и специальности</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>О сервисе</h4>
+                    <p>Сервис подбора ВУЗов по баллам помогает абитуриентам найти подходящие учебные заведения на основе их результатов ЦТ.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Email: pracagep@gmail.com</p>
+                    <p>Телефон: +375 (44) 721-10-01</p>
+                    <p>Адрес: г. п. Лоев, ул. Интернациональная, 17</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Полезные ссылки</h4>
+                    <p><a href="index.html">Главная страница</a></p>
+                    <p><a href="search.html">Поиск ВУЗов</a></p>
+                    <p><a href="catalog.html">Каталог ВУЗов</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Подбор ВУЗов по баллам. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 
