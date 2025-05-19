@@ -1,0 +1,12 @@
+{
+  "name": "university-search",
+  "version": "1.0.0",
+  "description": "University search application",
+  "scripts": {
+    "sass": "sass scss/styles.scss:css/styles.css --watch",
+    "sass:build": "sass scss/styles.scss:css/styles.css --style compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+} 

@@ -1,0 +1,90 @@
+.search-form {
+    background: $color-white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: $box-shadow;
+    margin: 2rem 0;
+
+    form {
+        @include flex(column, flex-start, stretch);
+        gap: 1.5rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        @include flex(column, flex-start, stretch);
+        gap: 0.5rem;
+
+        label {
+            font-weight: bold;
+            color: $color-secondary;
+        }
+
+        input, select {
+            padding: 0.8rem;
+            border: 1px solid rgba($color-secondary, 0.2);
+            border-radius: 4px;
+            font-size: 1rem;
+
+            &:focus {
+                outline: none;
+                border-color: $color-primary;
+            }
+        }
+    }
+
+    button {
+        @include button;
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+}
+
+.results {
+    margin: 2rem 0;
+
+    .university-card {
+        background: $color-white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: $box-shadow;
+        margin-bottom: 1.5rem;
+
+        h3 {
+            color: $color-secondary;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 0.5rem;
+
+            strong {
+                color: $color-secondary;
+            }
+        }
+    }
+}
+
+@include respond-to(mobile) {
+    .search-form {
+        padding: 1.5rem;
+
+        form {
+            gap: 1rem;
+        }
+
+        .form-group {
+            input, select {
+                padding: 0.6rem;
+            }
+        }
+    }
+
+    .results {
+        .university-card {
+            padding: 1.5rem;
+        }
+    }
+} 

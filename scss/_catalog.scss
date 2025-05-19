@@ -1,0 +1,70 @@
+.catalog {
+    @include grid(2, 300px, 2rem);
+    margin: 2rem 0;
+
+    .university-card {
+        background: $color-white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: $box-shadow;
+
+        h3 {
+            color: $color-secondary;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 0.5rem;
+
+            strong {
+                color: $color-secondary;
+            }
+        }
+
+        .faculties {
+            margin-top: 1.5rem;
+
+            h4 {
+                color: $color-secondary;
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                list-style: none;
+                padding-left: 1rem;
+
+                li {
+                    position: relative;
+                    padding-left: 1.5rem;
+                    margin-bottom: 0.5rem;
+
+                    &::before {
+                        content: '•';
+                        color: $color-primary;
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include respond-to(tablet) {
+    .catalog {
+        grid-template-columns: 1fr;
+    }
+}
+
+@include respond-to(mobile) {
+    .catalog {
+        .university-card {
+            padding: 1.5rem;
+
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+    }
+} 

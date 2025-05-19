@@ -1,0 +1,229 @@
+@import 'variables';
+@import 'mixins';
+
+// Сброс стилей
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: $color-background;
+    color: $color-text;
+    line-height: 1.6;
+}
+
+// Контейнер
+.container {
+    @include container;
+}
+
+// Шапка
+header {
+    background-color: $color-white;
+    padding: $header-padding 0;
+    box-shadow: $box-shadow;
+
+    .container {
+        @include flex(row, space-between, center);
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: $color-secondary;
+        font-weight: 600;
+    }
+}
+
+// Навигация
+nav {
+    background-color: $color-secondary;
+    padding: $nav-padding 0;
+    position: relative;
+
+    .container {
+        @include flex(row, space-between, center);
+    }
+
+    ul {
+        @include flex(row, center, center);
+        list-style: none;
+        gap: 2rem;
+        flex-wrap: wrap;
+        padding: 0 1rem;
+
+        @include respond-to(tablet) {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: $color-secondary;
+            flex-direction: column;
+            padding: 1rem 0;
+            gap: 1rem;
+
+            &.active {
+                display: flex;
+            }
+        }
+    }
+
+    a {
+        color: $color-white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: $transition-default;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}
+
+// Меню-бургер
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+
+    @include respond-to(tablet) {
+        display: block;
+    }
+
+    span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: $color-white;
+        margin: 5px 0;
+        transition: $transition-default;
+    }
+
+    &.active {
+        span {
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+    }
+}
+
+// Футер
+footer {
+    background-color: $color-secondary;
+    color: $color-white;
+    text-align: center;
+    padding: $footer-padding 0;
+    margin-top: 2rem;
+
+    .footer-content {
+        @include grid;
+        text-align: left;
+        padding: 0 1rem;
+    }
+
+    .footer-section {
+        h4 {
+            color: $color-primary;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: $color-white;
+            text-decoration: none;
+            transition: $transition-default;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+
+    .footer-bottom {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba($color-white, 0.1);
+    }
+}
+
+// Логотип
+.logo {
+    position: relative;
+    width: $logo-size;
+    height: $logo-size;
+    margin-right: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    transition: $transition-default;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $color-primary;
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+        border-radius: 4px;
+        transform: rotate(-45deg);
+        box-shadow: $box-shadow;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        background: $color-secondary;
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+        border-radius: 4px;
+        transform: rotate(-45deg);
+        top: 15%;
+        left: 15%;
+    }
+
+    .book {
+        position: absolute;
+        width: 40%;
+        height: 40%;
+        background: $color-white;
+        border-radius: 2px;
+        top: 30%;
+        left: 30%;
+        transform: rotate(-45deg);
+        box-shadow: $box-shadow;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, $color-primary, $color-secondary);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+    }
+} 
