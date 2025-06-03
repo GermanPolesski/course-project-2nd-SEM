@@ -64,7 +64,6 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     const fieldFaculties = facultiesByField[field] || [];
     
     console.log('Найденные факультеты для поля:', fieldFaculties);
-    
     let resultsHTML = '';
     let foundResults = false;
 
@@ -76,7 +75,7 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
             difference: score - item.score
         });
 
-        // Изменяем условие: показываем все варианты, где разница не более 30 баллов
+        //показываем все варианты, где разница не более 30 баллов
         if (score >= item.score - 30) {
             foundResults = true;
             const difference = score - item.score;

@@ -1,4 +1,3 @@
-// Миксин для флекс-контейнера
 @mixin flex($direction: row, $justify: center, $align: center) {
     display: flex;
     flex-direction: $direction;
@@ -6,14 +5,12 @@
     align-items: $align;
 }
 
-// Миксин для грид-контейнера
 @mixin grid($columns: auto-fit, $min-width: 200px, $gap: 2rem) {
     display: grid;
     grid-template-columns: repeat($columns, minmax($min-width, 1fr));
     gap: $gap;
 }
 
-// Миксин для медиа-запросов
 @mixin respond-to($breakpoint) {
     @if $breakpoint == tablet {
         @media (max-width: $breakpoint-tablet) { @content; }
@@ -23,7 +20,6 @@
     }
 }
 
-// Миксин для контейнера
 @mixin container {
     max-width: $container-max-width;
     margin: 0 auto;
@@ -31,7 +27,6 @@
     width: 100%;
 }
 
-// Миксин для кнопок
 @mixin button($bg-color: $color-primary, $text-color: $color-white) {
     background-color: $bg-color;
     color: $text-color;
